@@ -1,6 +1,6 @@
 ﻿<h1>@ViewBag.title</h1>
 
-<form action="/Search/Results">
+<form method="post" action="/Search/Results">
     <h2>Search by:</h2>
 
     <p>
@@ -33,4 +33,15 @@
     <h3>@ViewBag.jobs.Count Result(s)</h3>
 
     // TODO #2 - Loop over jobs dictionary and display all job fields 
+
+    @foreach(Dictionary<string, string> jobs in ViewBag.jobs)
+    {
+        @foreach(KeyValuePair<string,string> job in jobs)
+        {
+    <table class="job-listing">
+    <p>@job.Key, @job.Value</p>
+    </table>
+
+}
+    }
 }
